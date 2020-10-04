@@ -2,6 +2,7 @@
 using Akka.DI.Core;
 using ConsoleApp.Messages;
 using System;
+using System.Linq;
 using System.Threading;
 
 namespace ConsoleApp
@@ -10,19 +11,9 @@ namespace ConsoleApp
     {
         public PingParentActor()
         {
-            PingChildActor = Context.ActorOf(Context.DI().Props<PingChildActor>());
-
-            Receive<Start>(Handle);
-        }
-
-        private void Handle(Start msg)
-        {
-            Console.WriteLine("Hello");
-            Thread.Sleep(1000);
-            PongParentActor.Tell(msg);
+            PingChildActor = Context.ActorOf(Context.DI().Props<PingChildActor>(), "PingChildActor-" + Context.GetChildren().Count());
         }
 
         public IActorRef PingChildActor { get; private set; }
-        public IActorRef PongParentActor { get; internal set; }
     }
 }

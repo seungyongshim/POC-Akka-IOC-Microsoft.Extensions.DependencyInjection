@@ -7,8 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Akka" Version="1.4.10" />
-    <PackageReference Include="Akka.DI.AutoFac" Version="1.4.1" />
     <PackageReference Include="Akka.DI.Core" Version="1.4.10" />
+    <PackageReference Include="Akka.DI.Extensions.DependencyInjection" Version="1.4.15" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
   </ItemGroup>
 
 </Project>
